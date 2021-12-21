@@ -16,6 +16,7 @@ export default function SingleUni() {
   const [rank, setRank] = useState("");
   const [uniLocation, setLocation] = useState("");
   const [DFRatio, setDom_Frgn_Ratio] = useState("");
+  const [DFCalc, setDFCalc] = useState(0);
   const [PriLang, setPriLang] = useState("");
   const [FTutition_Range, setFTutition_Range] = useState("");
   const [DTutition_Range, setDTutition_Range] = useState("");
@@ -48,6 +49,7 @@ export default function SingleUni() {
       setRank(res.data.Rank);
       setLocation(res.data.Location);
       setDom_Frgn_Ratio(res.data.Dom_Frgn_Ratio);
+      setDFCalc(100-res.data.Dom_Frgn_Ratio);
       setPriLang(res.data.PriLang);
       setFTutition_Range(res.data.FTutition_Range);
       setDTutition_Range(res.data.DTutition_Range);
@@ -72,10 +74,10 @@ export default function SingleUni() {
             <div className="uniPageInfo">
               <div className="rankDiv"> Rank: #{rank } </div>
               <div className="locationDiv"> Location: {uniLocation} </div>
-              <div className="DFRatioDiv"> Domestic to Foreign Student Ratio: {DFRatio} </div>
+              <div className="DFRatioDiv"> Domestic to Foreign Student Ratio: {DFRatio}:{DFCalc} </div>
               <div className="priLangDiv"> Primary Language: {PriLang} </div>
-              <div className="FTutition_RangeDiv"> Foreign Tutition Range: {FTutition_Range} </div>
-              <div className="DTutition_RangeDiv"> Domestic Tutition Range: {DTutition_Range} </div>
+              <div className="FTutition_RangeDiv"> Foreign Tutition Range (Avg): {FTutition_Range} </div>
+              <div className="DTutition_RangeDiv"> Domestic Tutition Range (Avg): {DTutition_Range}</div>
               <div className="verifiedDiv"> Verification Status: {Type} </div>
               <div className="programsListDiv"> Programs Offered: 
                 {Programs.map((c) => (
@@ -99,7 +101,7 @@ export default function SingleUni() {
                 </form>
               )}
               
-              Comments: 
+              <b>Comments: </b>
                 {Comments.map((c) => (
                   <div className="commentDiv">
                   <div className="commentAuthor">Author: {c.username}</div>
