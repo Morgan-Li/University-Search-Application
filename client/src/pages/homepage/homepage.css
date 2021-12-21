@@ -1,3 +1,15 @@
 .home {
     display: flex;
   }
+
+  .listDiv {
+    margin-top: 25px;
+  }
+
+  .queryBox {
+    margin-top: 150px;
+    justify-content: center;
+    display:flex;
+    width: 30vw;
+    margin-left: 35vw;
+  }

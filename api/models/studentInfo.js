@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 
 const studentInfo = new mongoose.Schema(
-	{
-		username: { type: String, required: true },
+	{  //CHANGED UNIQUE TO TRUE FOR USERNAME. MIGHT CAUSE PROBLEMS???
+		username: { type: String, required: true, unique: true },
 		email: { type: String, required: true, unique: true },
 		password: { type: String, required: true },
 	},
