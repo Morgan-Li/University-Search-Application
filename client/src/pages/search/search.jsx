@@ -12,8 +12,8 @@ export default function Search() {
     const [Location, setLocation] = useState("Canada");
     const [Dom_Frgn_Ratio, setDom_Frgn_Ratio] = useState("All");
     const [Program, setProgram] = useState("Math");
-    const [FTutition, setFTutition] = useState("None");
-    const [DTutition, setDTutition] = useState("None");
+    const [FTutition, setFTutition] = useState("100000");
+    const [DTutition, setDTutition] = useState("100000");
   
     const handleSubmit = async (e) => {
         e.preventDefault();
