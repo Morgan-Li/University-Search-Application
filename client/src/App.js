@@ -4,6 +4,7 @@ import Homepage from "./pages/homepage/homepage";
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import Single from "./pages/uniPage/uniPage";
+import Search from "./pages/search/search";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "./context/Context";
@@ -20,6 +21,7 @@ function App() {
       <Route path="/register" element={user ? <Homepage /> : <Register />} />
       <Route path="/login" element={user ? <Homepage /> : <Login />}/>
       <Route path="/uniPage/:uniPageId" element={<Single />}/>
+      <Route path="/search" element={user ? <Search /> : <Login />}/>
     </Routes>
   </BrowserRouter>
 

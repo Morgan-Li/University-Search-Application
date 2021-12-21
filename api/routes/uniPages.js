@@ -53,7 +53,6 @@ router.post("/comment", async (req, res) => {
 router.get("/:id/comment", async (req, res) => {
     try {
       let queryParam = req.query.UniName;
-      console.log(queryParam);
       const comments = await Comment.find({UniName: queryParam});
       res.status(200).json(comments);
     } catch (err) {

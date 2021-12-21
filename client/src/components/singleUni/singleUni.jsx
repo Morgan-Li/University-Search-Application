@@ -65,9 +65,9 @@ export default function SingleUni() {
     <div className="uniPage">
         <div className="uniPageWrapper">
             <h1 className="uniNameTitle">
-              <a href={Website} className="link">
+              <u><a href={Website} target="_blank" rel="noopener noreferrer" className="link">
                 {Uname}
-              </a>
+              </a></u>
             </h1>
             <div className="uniPageInfo">
               <div className="rankDiv"> Rank: #{rank } </div>
@@ -101,7 +101,11 @@ export default function SingleUni() {
               
               Comments: 
                 {Comments.map((c) => (
-                  <div className="commentDiv">Author: {c.username} Description: {c.desc}</div>
+                  <div className="commentDiv">
+                  <div className="commentAuthor">Author: {c.username}</div>
+                  <div>Comment: {c.desc}</div>
+                  </div>
+
                 ))}
               </div>
             </div>

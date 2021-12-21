@@ -1,6 +1,6 @@
 .uniPage {
     height: calc(60vh - 50px);
-    margin-top: 100px;
+    margin-top: 125px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,7 +10,7 @@
   }
 
   .commentsListDiv {
-    margin-top: 50px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
 
@@ -25,6 +25,11 @@
     margin-top: 10px;
   }
 
+  .commentAuthor {
+    border-bottom: #444;
+    border-bottom: solid;
+  }
+
   .commentForm {
     margin: 5px;
   }
@@ -34,4 +39,3 @@
     width: 100%;
     word-wrap: break-word;
   }
-
