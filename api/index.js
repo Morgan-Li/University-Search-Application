@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
 const uniRoute = require("./routes/uniPages");
 const searchRoute = require("./routes/search");
+const watchlistRoute = require("./routes/watchlist");
 
 dotenv.config();
 app.use(express.json());
@@ -263,6 +264,7 @@ app.get('/api/top', async (req, res) => {
 	}
 })
 
+app.use("/api/watchlist", watchlistRoute);
 app.use("/api/search", searchRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/uniPages", uniRoute);

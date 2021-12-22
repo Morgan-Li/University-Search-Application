@@ -62,3 +62,9 @@
     color: #666;
     cursor: pointer;
   }
+
+  .topIconSaved {
+    margin-right: 15px;
+    color:#444;
+    font-size: 19px;
+  }

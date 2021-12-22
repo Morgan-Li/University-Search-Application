@@ -1,8 +1,8 @@
 import { useLocation } from "react-router";
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import Topbar from "../../components/topbar/Topbar";
-import Header from "../../components/header/header";
+//import Topbar from "../../components/topbar/Topbar";
+//import Header from "../../components/header/header";
 import UniList from "../../components/uniList/uniList";
 import "./homepage.css";
 

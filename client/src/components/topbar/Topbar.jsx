@@ -29,6 +29,9 @@ export default function Topbar() {
             <Link className="link" to="/search">
               <i className="topSearchIcon fas fa-search"></i>
             </Link>
+            <Link className="link" to="/watchlist">
+              <i class="topIconSaved fas fa-list"></i>
+            </Link>
             <li className= "topListItem">
               <Link className="link" to="/settings">
                 <i className="topIcon fas fa-user-circle"> Welcome {user.username}! </i>

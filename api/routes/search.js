@@ -7,7 +7,6 @@ const Uni = require("../models/uniInfo");
 
 router.get("/", async (req, res) => {
     try {
-      console.log(req.query);
       let queryPriLang = req.query.PriLang;
       let queryLocation = req.query.Location;
 
@@ -31,14 +30,6 @@ router.get("/", async (req, res) => {
       }else {
         queryDTutition = parseInt(req.query.DTutition);
       }
-      console.log(queryPriLang);
-      console.log(queryLocation);
-      console.log(queryDom_Frgn_Ratio);
-      console.log(queryProgram);
-      console.log(queryFTutition);
-      console.log(queryDTutition);
-      console.log(typeof queryFTutition);
-      console.log(typeof queryDTutition);
       const queryUnis = await Uni.find(
         {PriLang: queryPriLang, 
         Location: {$regex:queryLocation},

@@ -47,9 +47,9 @@ export default function Search() {
     }
   
     return (
-    <div>
+    <div className="SearchPage">
         <form className="searchForm" onSubmit={handleSubmit}>
-            <label className="PriLangLabel">Primary Language:</label>
+            <label className="PriLangLabel">Primary Language: </label>
             <select className="PriLang" name="PriLang" onChange={e=> setPriLang(e.target.value)}>
                 <option value="English">English</option>
                 <option value="French">French</option>
@@ -59,7 +59,7 @@ export default function Search() {
                 <option value="Bengali">Bengali</option>
                 <option value="German">German</option>
             </select>
-            <label className="LocationLabel"> Country:</label>
+            <label className="LocationLabel"> Country: </label>
             <select className="Location" name="Location" onChange={e=> setLocation(e.target.value)}>
                 <option value="Canada">Canada</option>
                 <option value="United States">United States</option>
@@ -70,7 +70,7 @@ export default function Search() {
                 <option value="France">France</option>
                 <option value="Germany">Germany</option>
             </select>
-            <label className="Dom_Frgn_RatioLabel"> Domestic to Foreign Students (GTE):</label>
+            <label className="Dom_Frgn_RatioLabel"> Domestic to Foreign Students (GTE): </label>
             <select className="Dom_Frgn_Ratio" name="Dom_Frgn_Ratio" onChange={e=> setDom_Frgn_Ratio(e.target.value)}>
                 <option value="All">All</option>
                 <option value="90">90:10</option>
@@ -82,7 +82,7 @@ export default function Search() {
                 <option value="30">30:70</option>
                 <option value="20">20:80</option>
             </select>
-            <label className="ProgramLabel"> Program:</label>
+            <label className="ProgramLabel"> Program: </label>
             <select className="Program" name="Program" onChange={e=> setProgram(e.target.value)}>
                 <option value="Math">Math</option>
                 <option value="Engineering">Engineering</option>
@@ -93,7 +93,7 @@ export default function Search() {
                 <option value="Biology">Biology</option>
                 <option value="Education">Education</option>
             </select>
-            <label className="FTutitionLabel"> Foreign Tutition (Max):</label>
+            <label className="FTutitionLabel"> Foreign Tutition (Max): </label>
             <select className="FTutition" name="FTutition" onChange={e=> setFTutition(e.target.value)}>
                 <option value="None">No limit</option>
                 <option value="5000">5000</option>
@@ -104,7 +104,7 @@ export default function Search() {
                 <option value="50000">50000</option>
                 <option value="100000">100000</option>
             </select>
-            <label className="DTutitionLabel"> Domestic Tutition (Max):</label>
+            <label className="DTutitionLabel"> Domestic Tutition (Max): </label>
             <select className="DTutition" name="DTutition" onChange={e=> setDTutition(e.target.value)}>
                 <option value="None">No limit</option>
                 <option value="3000">3000</option>
@@ -122,7 +122,7 @@ export default function Search() {
 
         <input
           type="text"
-          placeholder="Search Universities"
+          placeholder="Filter Universities"
           className = "queryBox"
           value={q}
           onChange={(e) => setQ(e.target.value)}

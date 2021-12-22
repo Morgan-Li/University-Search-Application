@@ -39,3 +39,20 @@
     width: 100%;
     word-wrap: break-word;
   }
+
+  .saveIcon {
+    font-size: 40px;
+    color:#444;
+    cursor: pointer;
+  }
+
+  .saveDiv {
+    position: absolute;
+    left: 70vw;
+  }
+
+  .alreadySavedIcon {
+    font-size: 40px;
+    color:rgb(21, 197, 109);
+    cursor: pointer;
+  }
