@@ -4,3 +4,29 @@
     margin-bottom: 25px;
 }
 
+.uniCreateButton {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.createUniForm {
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25vw;
+}
+
+.createAccForm {
+    text-align: left;
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 21vw;
+}
+
+.accCreateButton {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}

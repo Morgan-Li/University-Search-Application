@@ -71,21 +71,28 @@ export default function Admin() {
       <div className="adminPanel">
           <h1 className= "createTitle"><u>Create University </u></h1>
           <form className="createUniForm" onSubmit={handleCreate}>
-            <label>Rank: </label>
+            <div>
+            <label> Rank: </label>
             <input
             type="number"
             className="createInput"
             placeholder="Enter a rank #1-999"
             onChange={(e) => setRank(e.target.value)}
             />
-            <label>University name: </label>
+            </div>
+
+            <div>
+            <label> University name: </label>
             <input
             type="text"
             className="createInput"
             placeholder="Enter a university name"
             onChange={(e) => setUname(e.target.value)}
             />
-            <label>Programs: </label>
+            </div>
+
+            <div>
+            <label> Programs: </label>
             <input
             type="text"
             ref={prog}
@@ -96,16 +103,20 @@ export default function Admin() {
             <button className="addButton" type="button" onClick={appendToArray}>
                 Add Program
             </button> 
+            </div>
 
-            <label>Domestic to Foreign Ratio: </label>
+            <div>
+            <label> Domestic to Foreign Ratio: </label>
             <input
             type="text"
             className="createInput"
             placeholder="Enter a single number 1-100"
             onChange={(e) => setDom_Frgn_Ratio(e.target.value)}
             />
+            </div>
 
-            <label className="PriLangInput">Primary Language: </label>
+            <div>
+            <label className="PriLangInput"> Primary Language: </label>
             <select className="PriLangSel" name="PriLang" onChange={e=> setPriLang(e.target.value)}>
                 <option value="English">English</option>
                 <option value="French">French</option>
@@ -115,76 +126,91 @@ export default function Admin() {
                 <option value="Bengali">Bengali</option>
                 <option value="German">German</option>
             </select>
+            </div>
 
-            <label>Location: </label>
+            <div>
+            <label> Location: </label>
             <input
             type="text"
             className="createInput"
             placeholder="Country, State/Province, City"
             onChange={(e) => setLocation(e.target.value)}
             />
+            </div>
 
-            <label>Foreign Tuition Average: </label>
+            <div>
+            <label> Foreign Tuition Average: </label>
             <input
             type="number"
             className="createInput"
             placeholder="Enter average tuition cost"
             onChange={(e) => setFTutition(e.target.value)}
             />
+            </div>
 
-            <label>Domestic Tuition Average: </label>
+            <div>
+            <label> Domestic Tuition Average: </label>
             <input
             type="number"
             className="createInput"
             placeholder="Enter average tuition cost"
             onChange={(e) => setDTutition(e.target.value)}
             />
+            </div>
 
-            <label>Website link: </label>
+            <div>
+            <label> Website link: </label>
             <input
             type="text"
             className="createInput"
             placeholder="URL"
             onChange={(e) => setWebsite(e.target.value)}
             />
+            </div>
 
-            <label className="VerificationInput">Verification Status: </label>
+            <div>
+            <label className="VerificationInput"> Verification Status: </label>
             <select className="VerificationSel" name="Verification" onChange={e=> setVerification(e.target.value)}>
                 <option value="Unverified">Unverified</option>
                 <option value="Verified">Verified</option>
             </select>
+            </div>
 
+            <div className="uniCreateButton">
             <button className="createButton" type="submit">
                 Create
             </button>
+            </div>
           </form>
 
-          <h1 className= "createTitle"><u>Create Institution Account </u></h1>
+          <h1 className= "createTitle"><u> Create Institution Account </u></h1>
           <form className="createAccForm" onSubmit={handleCreateAcc}>
-            <label>Institution/ Username: </label>
+            <label> Institution/ Username: </label>
             <input
             type="text"
             className="createInput"
             placeholder="Both names must match!"
             onChange={(e) => setUsername(e.target.value)}
             />
-            <label>Institution Email: </label>
+            <label> Institution Email: </label>
             <input
             type="text"
             className="createInput"
             placeholder="Enter institution email"
             onChange={(e) => setEmail(e.target.value)}
             />
-            <label>Password: </label>
+            <label> Password: </label>
             <input
             type="text"
             className="createInput"
             placeholder="Enter a password"
             onChange={(e) => setPassword(e.target.value)}
             />
+            <div className="accCreateButton">
             <button className="createButton" type="submit">
                 Create
             </button>
+            </div>
           </form>
       </div>
   </div>
