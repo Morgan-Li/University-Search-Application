@@ -59,7 +59,7 @@
   .topSearchIcon {
     margin-right: 15px;
     font-size: 18px;
-    color: #666;
+    color: #444;
     cursor: pointer;
   }
 
@@ -67,4 +67,24 @@
     margin-right: 15px;
     color:#444;
     font-size: 19px;
+  }
+
+  .adminText {
+    text-align: center;
+    color: red;
+    font-size: 30px;
+    font-weight: 800;
+  }
+
+  .instituteText {
+    text-align: center;
+    color: #444;
+    font-size: 30px;
+    font-weight: 800;
+  }
+
+  .adminIcon {
+    margin-right: 15px;
+    font-size: 20px;
+    color: red;
   }

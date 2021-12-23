@@ -2,10 +2,11 @@ const mongoose = require('mongoose')
 
 const comment = new mongoose.Schema(
 	{
-        UniName: { type: String, required: true },
+        UniID: { type: String, required: true },
 		username: { type: String, required: true },
 		desc: { type: String, required: true },
 	},
+	{timestamps: true},
 	{ collection: 'Comments' }
 )
 

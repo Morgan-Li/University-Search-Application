@@ -22,10 +22,11 @@
   .commentDiv {
     border: #444;
     border: solid;
+    border-radius: 3px;
     margin-top: 10px;
   }
 
-  .commentAuthor {
+  .dateDiv {
     border-bottom: #444;
     border-bottom: solid;
   }
@@ -55,4 +56,39 @@
     font-size: 40px;
     color:rgb(21, 197, 109);
     cursor: pointer;
+  }
+
+  .deleteDiv {
+    position: absolute;
+    left: 73vw;
+  }
+
+  .deleteIcon {
+    font-size: 40px;
+    color:rgb(243, 9, 9);
+    cursor: pointer;
+  }
+
+  .UpdateTime {
+    position: absolute;
+    bottom: 10px;
+    left: 5px;
+    color: #444;
+  }
+
+  .saveChangesIcon {
+    font-size: 40px;
+    color:rgb(9, 208, 243);
+    cursor: pointer;
+  }
+
+  .updateIcon {
+    font-size: 40px;
+    color:rgb(83, 243, 9);
+    cursor: pointer;
+  }
+
+  .updateDiv {
+    position: absolute;
+    left: 67vw;
   }

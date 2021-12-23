@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const User = require("../models/studentInfo");
+const User = require("../models/userInfo");
 const bcrypt = require("bcrypt");
 
 //REGISTER
@@ -13,6 +13,8 @@ router.post("/register", async (req, res) => {
       username: req.body.username,
       email: req.body.email,
       password: hashedPass,
+      isAdmin: req.body.isAdmin,
+      isInstitution: req.body.isInstitution
     });
 
     const user = await newUser.save();

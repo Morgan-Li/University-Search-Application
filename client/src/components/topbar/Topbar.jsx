@@ -5,7 +5,7 @@ import "./topbar.css";
 
 export default function Topbar() {
   const { user, dispatch } = useContext(Context);
-
+  
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
   };
@@ -21,11 +21,15 @@ export default function Topbar() {
         </Link>
       </div>
       <div className="topCenter">
-
+        {user != null && user.isAdmin && <div className="adminText"> ADMIN </div>}
+        {user != null && user.isInstitution && <div className="instituteText"> INSTITUTE </div>}
       </div>
       <div className="topRight">
         {user ? (
           <ul className = "topList"> 
+            {user.isAdmin &&  <Link className="link" to="/admin">
+                <i className="adminIcon fas fa-cog"></i>
+              </Link> }
             <Link className="link" to="/search">
               <i className="topSearchIcon fas fa-search"></i>
             </Link>
@@ -34,7 +38,7 @@ export default function Topbar() {
             </Link>
             <li className= "topListItem">
               <Link className="link" to="/settings">
-                <i className="topIcon fas fa-user-circle"> Welcome {user.username}! </i>
+                <i className="topIcon fas fa-user-circle"> {user.username}</i>
               </Link>
             </li>
             <li className="topListItem" onClick={handleLogout}>

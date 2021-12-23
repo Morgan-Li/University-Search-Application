@@ -13,6 +13,7 @@ const uniInfo = new mongoose.Schema(
         Website: { type: String},
 		Type: {type: String },
 	},
+	{timestamps: true},
 	{ collection: 'UniInfo' }
 )
 
