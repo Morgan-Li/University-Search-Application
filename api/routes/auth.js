@@ -2,7 +2,7 @@ const router = require("express").Router();
 const User = require("../models/userInfo");
 const bcrypt = require("bcrypt");
 
-//REGISTER
+//REGISTER USER ENDPOINT
 router.post("/register", async (req, res) => {
   console.log(req.body);
   console.log("cat");
@@ -24,7 +24,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-//LOGIN
+//LOGIN USER ENDPOINT
 router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username });

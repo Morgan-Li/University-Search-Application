@@ -5,6 +5,7 @@ const Uni = require("../models/uniInfo");
 
 //http://localhost:5000/api/search?PriLang=English&Location=Canada&Dom_Frgn_Ratio=40&Program=Math&FTutition=400&DTutition=500
 
+//Endpoint for search query using params
 router.get("/", async (req, res) => {
     try {
       let queryPriLang = req.query.PriLang;

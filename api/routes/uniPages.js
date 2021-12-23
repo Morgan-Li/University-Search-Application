@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Uni = require("../models/uniInfo");
 const Comment = require("../models/comment");
 
-//CREATE UNI
+//End point for creating new university
 router.post("/", async (req, res) => {
     const newUni = new Uni(req.body);
     try {
@@ -13,7 +13,7 @@ router.post("/", async (req, res) => {
     }
   });
 
-//get all unis for homepage
+//End point for finding all Unis, projecting by Uname, Rank, and Location, then sorting by rank for homepage table
 router.get("/", async (req, res) => {
     try {
       const unis = await Uni.find( {}, {Uname: 1, Rank: 1, Location: 1}).sort({Rank: 1});
@@ -23,7 +23,7 @@ router.get("/", async (req, res) => {
     }
   });
 
-//get a single uni by id for single unipage
+//End point for retrieving a single uni by unique ID to load individual uni webpage
 router.get("/:id", async (req, res) => {
     try {
       const singleUni = await Uni.findById(req.params.id);
@@ -33,7 +33,7 @@ router.get("/:id", async (req, res) => {
     }
   });
 
-//UPDATE UNI
+//End point to find and update uni by ID
 router.put("/:id", async (req, res) => {
   console.log(req.params.id);
   try {
@@ -49,7 +49,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-//post a comment
+//End point to post a comment
 router.post("/comment", async (req, res) => {
     const newComment = new Comment({
         UniID: req.body.UniID,
@@ -65,7 +65,7 @@ router.post("/comment", async (req, res) => {
     }
   });
 
-//get all comments for uni page
+//End point to get all comments on a single uni webpage
 router.get("/:id/comment", async (req, res) => {
     try {
       let queryParam = req.params.id;
@@ -76,7 +76,7 @@ router.get("/:id/comment", async (req, res) => {
     }
   });
 
-//delete uni by id
+//End point to delete a university by ID
 router.delete("/:id", async (req, res) => {
   try {
     await Uni.findByIdAndDelete(req.params.id);
@@ -86,7 +86,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-//delete uni comments 
+//End point to delete all comments on a university page by ID
 router.delete("/:id/comment", async (req, res) => {
   try {
     await Comment.deleteMany({UniID: req.params.id});
