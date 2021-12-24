@@ -93,7 +93,7 @@ router.put("/:id", async (req, res) => {
 
 //End point to delete all instances of a university from all watchlist by UniID
 //Used for cleanup when deleting a uni
-router.put("/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     await savedUni.deleteMany({UniID: req.params.id});
     res.status(200).json("Deleted saved unis");

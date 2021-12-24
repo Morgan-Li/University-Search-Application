@@ -76,8 +76,8 @@ export default function SingleUni() {
         DTutition_Range: DTutition_Range,
         Type: Type
       });
+      await updateSavedUnis();
       res.data && window.location.reload();
-      updateSavedUnis();
       setUpdating(false);
     } catch (err) {
     }
@@ -85,6 +85,7 @@ export default function SingleUni() {
 
   const updateSavedUnis = async () => {
     try {
+      console.log("MEOW");
       const res2 = await axios.put("/watchlist/" + path, {
         Rank: rank,
         Location: uniLocation,
@@ -112,8 +113,8 @@ export default function SingleUni() {
     e.preventDefault();
     try {
       const res4 = await axios.delete("/uniPages/" + path);
-      res4.data && console.log("Deleted university!");
-      deleteSavedUnis();
+      await deleteSavedUnis();
+      res4.data && console.log("Deleted uni page!");
     } catch (err) {
     }
 
@@ -122,8 +123,8 @@ export default function SingleUni() {
   const deleteSavedUnis = async () => {
     try {
       const res5 = await axios.delete("/watchlist/" + path);
+      await deleteComments();
       res5.data && console.log("Deleted saved pages!");
-      deleteComments();
     } catch (err) {
     }
   };
