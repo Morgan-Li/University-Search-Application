@@ -18,6 +18,7 @@ mongoose
   .then(console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
 
+  /*
 //create profile instance ENDPOINT 6
 app.post('/api/:student/profiles', async (req, res) => {
 	console.log(req.body)
@@ -263,6 +264,7 @@ app.get('/api/top', async (req, res) => {
 		res.json({ status: 'error'})
 	}
 })
+*/
 
 app.use("/api/watchlist", watchlistRoute);
 app.use("/api/search", searchRoute);

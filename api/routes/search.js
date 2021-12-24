@@ -1,15 +1,28 @@
 const router = require("express").Router();
 const Uni = require("../models/uniInfo");
 
-//sample postman request http://localhost:5000/api/search?PriLang=English&Location=Canada
+//sample postman request 
 
-//http://localhost:5000/api/search?PriLang=English&Location=Canada&Dom_Frgn_Ratio=40&Program=Math&FTutition=400&DTutition=500
+//http://localhost:5000/api/search?PriLang=English&Location=Canada&Dom_Frgn_Ratio=40&Program=Math&FTutition=40000&DTutition=50000
 
 //Endpoint for search query using params
 router.get("/", async (req, res) => {
     try {
-      let queryPriLang = req.query.PriLang;
-      let queryLocation = req.query.Location;
+      let query2 = "Dog";
+      let query3 = "Dog";
+
+      if(req.query.PriLang == "All") {
+        queryPriLang = {$type: "string"};
+      }else {
+        queryPriLang = req.query.PriLang;
+      }
+
+      if(req.query.Location == "All") {
+        queryLocation = req.query.Location;
+        query2 = {$type: "string"};
+      }else {
+        queryLocation = req.query.Location;
+      }
 
       if(req.query.Dom_Frgn_Ratio == "All") {
         queryDom_Frgn_Ratio = "0";
@@ -17,7 +30,13 @@ router.get("/", async (req, res) => {
         queryDom_Frgn_Ratio = req.query.Dom_Frgn_Ratio;
       }
 
-      let queryProgram = req.query.Program;
+      if(req.query.Program == "All") {
+        queryProgram = req.query.Program;
+        query3 = {$type: "string"};
+      }else {
+        queryProgram = req.query.Program;
+      }
+
 
       if(req.query.FTutition == "None") {
         parseInt(queryFTutition);
@@ -33,13 +52,14 @@ router.get("/", async (req, res) => {
       }
       const queryUnis = await Uni.find(
         {PriLang: queryPriLang, 
-        Location: {$regex:queryLocation},
+        $or: [{ Location: {$regex:queryLocation}}, {Location: query2}],  
+        //Location: {$regex:queryLocation} || {$type: "string"},
         Dom_Frgn_Ratio:{$gte : queryDom_Frgn_Ratio},
-        Prog_Offered: queryProgram,
+        $or: [{ Prog_Offered: queryProgram}, {Prog_Offered: query3}], 
+        //Prog_Offered: queryProgram,
         FTutition_Range:{$lte : queryFTutition},
         DTutition_Range: {$lte : queryDTutition},
         }, {Uname: 1, Rank: 1, Location: 1, Dom_Frgn_Ratio: 1,  Prog_Offered: 1, FTutition_Range:1, DTutition_Range: 1, Type: 1 }).sort({Rank: 1});
-
       res.status(200).json(queryUnis);
     } catch (err) {
       res.status(500).json(err);

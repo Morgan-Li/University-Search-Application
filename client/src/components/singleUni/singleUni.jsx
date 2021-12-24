@@ -66,6 +66,7 @@ export default function SingleUni() {
     e.preventDefault();
     try {
       const res = await axios.put("/uniPages/" + path, {
+        Website: Website,
         Rank: rank,
         Prog_Offered: Programs,
         Dom_Frgn_Ratio: DFRatio,
@@ -76,7 +77,19 @@ export default function SingleUni() {
         Type: Type
       });
       res.data && window.location.reload();
+      updateSavedUnis();
       setUpdating(false);
+    } catch (err) {
+    }
+  };
+
+  const updateSavedUnis = async () => {
+    try {
+      const res2 = await axios.put("/watchlist/" + path, {
+        Rank: rank,
+        Location: uniLocation,
+      });
+      res2.data && console.log("Updated saved pages!");
     } catch (err) {
     }
   };
@@ -161,6 +174,14 @@ export default function SingleUni() {
               <div className="uniPageInfo">
                 {Updating ? (
                   <div className="displayPage"> 
+                    <div className="websiteDiv"> Website link: 
+                      <input
+                      type="text"
+                      className="createInput"
+                      placeholder="Website URL"
+                      onChange={(e) => setWebsite(e.target.value)}
+                      />
+                    </div>
                     <div className="rankDiv"> Rank: 
                     {user && user.isAdmin && (<input
                       type="number"
@@ -233,7 +254,7 @@ export default function SingleUni() {
                   </div>
                   ) : (
                   <div className="editPage"> 
-                    <div className="rankDiv"> Rank: #{rank } </div>
+                    <div className="rankDiv"> Rank: <b>#{rank }</b> </div>
                     <div className="locationDiv"> Location: {uniLocation} </div>
                     <div className="DFRatioDiv"> Domestic to Foreign Student Ratio: {DFRatio}:{DFCalc} </div>
                     <div className="priLangDiv"> Primary Language: {PriLang} </div>
@@ -291,8 +312,8 @@ export default function SingleUni() {
       <div className="deleteDiv"> 
         {user && user.isAdmin && (<i className="deleteIcon fas fa-trash-alt" onClick={handleDeletePage}></i> )}
       </div>
-  
-      <div className="UpdateTime"> Last Updated: {new Date(uni.updatedAt).toDateString()} </div>
+
+      <div className="UpdateTime"> Last Updated: <b>{new Date(uni.updatedAt).toDateString()} </b></div>
     </div>
   );
 }

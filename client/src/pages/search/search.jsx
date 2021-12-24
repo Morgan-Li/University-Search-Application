@@ -8,10 +8,10 @@ export default function Search() {
 
     const [data, setData] = useState([]);
     const [q, setQ] = useState('');
-    const [PriLang, setPriLang] = useState("English");
-    const [Location, setLocation] = useState("Canada");
+    const [PriLang, setPriLang] = useState("All");
+    const [Location, setLocation] = useState("All");
     const [Dom_Frgn_Ratio, setDom_Frgn_Ratio] = useState("All");
-    const [Program, setProgram] = useState("Math");
+    const [Program, setProgram] = useState("All");
     const [FTutition, setFTutition] = useState("100000");
     const [DTutition, setDTutition] = useState("100000");
   
@@ -51,6 +51,7 @@ export default function Search() {
         <form className="searchForm" onSubmit={handleSubmit}>
             <label className="PriLangLabel">Primary Language: </label>
             <select className="PriLang" name="PriLang" onChange={e=> setPriLang(e.target.value)}>
+                <option value="All">All</option>
                 <option value="English">English</option>
                 <option value="French">French</option>
                 <option value="Mandarin">Mandarin</option>
@@ -61,6 +62,7 @@ export default function Search() {
             </select>
             <label className="LocationLabel"> Country: </label>
             <select className="Location" name="Location" onChange={e=> setLocation(e.target.value)}>
+                <option value="All">All</option>
                 <option value="Canada">Canada</option>
                 <option value="United States">United States</option>
                 <option value="United Kingdom">United Kingdom</option>
@@ -84,6 +86,7 @@ export default function Search() {
             </select>
             <label className="ProgramLabel"> Program: </label>
             <select className="Program" name="Program" onChange={e=> setProgram(e.target.value)}>
+                <option value="All">All</option>
                 <option value="Math">Math</option>
                 <option value="Engineering">Engineering</option>
                 <option value="English">English</option>

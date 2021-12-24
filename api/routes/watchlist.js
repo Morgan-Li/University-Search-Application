@@ -76,7 +76,24 @@ router.delete("/alreadySaved", async (req, res) => {
 
 //End point to delete all instances of a university from all watchlist by UniID
 //Used for cleanup when deleting a uni
-router.delete("/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
+  console.log(req.params.id);
+  try {
+    const updatedUni = await savedUni.updateMany({UniID: req.params.id},
+      {
+        $set: req.body,
+      },
+      {new: true}
+    );
+    res.status(200).json(updatedUni);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//End point to delete all instances of a university from all watchlist by UniID
+//Used for cleanup when deleting a uni
+router.put("/:id", async (req, res) => {
   try {
     await savedUni.deleteMany({UniID: req.params.id});
     res.status(200).json("Deleted saved unis");

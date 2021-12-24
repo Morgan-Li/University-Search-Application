@@ -72,8 +72,9 @@
   .UpdateTime {
     position: absolute;
     bottom: 10px;
-    left: 5px;
+    left: 10px;
     color: #444;
+    font-size: 20px;
   }
 
   .saveChangesIcon {
