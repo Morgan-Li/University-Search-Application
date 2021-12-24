@@ -167,9 +167,9 @@ export default function SingleUni() {
       <div className="uniPage">
           <div className="uniPageWrapper">
               <h1 className="uniNameTitle">
-                <u><a href={Website} target="_blank" rel="noopener noreferrer" className="link">
+                <a href={Website} target="_blank" rel="noopener noreferrer" className="link">
                   {Uname}
-                </a></u>
+                </a>
               </h1>
               <div className="uniPageInfo">
                 {Updating ? (
@@ -266,6 +266,12 @@ export default function SingleUni() {
                         <li className="programsListItem">{c}</li>
                       ))}
                     </div>
+                    <div className="UpdateTime"> Last Updated: <b>{new Date(uni.updatedAt).toDateString()} </b>
+                      {user && (<div className="buttonDiv"> 
+                      {AlreadySaved.length ==0 ?(<i className="saveIcon fas fa-save" onClick={handleClick}></i> ):
+                      (<i className="alreadySavedIcon fas fa-save" onClick={handleDelete}></i>)}
+                      </div>)}
+                    </div>
                   </div>
                   )}
 
@@ -288,32 +294,24 @@ export default function SingleUni() {
                 <b>Comments: </b>
                   {Comments.map((c) => (
                     <div className="commentDiv">
-                    <div className="commentAuthor">Author: {c.username} </div>
-                    <div className ="dateDiv">Date: {new Date(c.createdAt).toDateString()}</div>
-                    <div>Comment: {c.desc}</div>
+                    <div className="commentAuthor"><b>Author:</b> {c.username} </div>
+                    <div className ="dateDiv"><b>Date:</b> {new Date(c.createdAt).toDateString()}</div>
+                    <div><b>Comment:</b> {c.desc}</div>
                     </div>
 
                   ))}
                 </div>
               </div>
           </div>
+          {user && (user.isAdmin || user.isInstitution) && (user.isAdmin || user.username == Uname) && (<div className="updateDiv"> 
+          {Updating ?(<i className="saveChangesIcon fas fa-check-square" onClick={handleUpdate}></i> ):
+          (<i class="updateIcon fas fa-edit" onClick={() => setUpdating(true)}></i>)}
+          </div>)}
+
+          <div className="deleteDiv"> 
+          {user && user.isAdmin && (<i className="deleteIcon fas fa-trash-alt" onClick={handleDeletePage}></i> )}
+          </div>
       </div>
-
-      {user && (user.isAdmin || user.isInstitution) && (user.isAdmin || user.username == Uname) && (<div className="updateDiv"> 
-         {Updating ?(<i className="saveChangesIcon fas fa-check-square" onClick={handleUpdate}></i> ):
-        (<i class="updateIcon fas fa-edit" onClick={() => setUpdating(true)}></i>)}
-      </div>)}
-
-      {user && (<div className="saveDiv"> 
-        {AlreadySaved.length ==0 ?(<i className="saveIcon fas fa-save" onClick={handleClick}></i> ):
-        (<i className="alreadySavedIcon fas fa-save" onClick={handleDelete}></i>)}
-      </div>)}
-
-      <div className="deleteDiv"> 
-        {user && user.isAdmin && (<i className="deleteIcon fas fa-trash-alt" onClick={handleDeletePage}></i> )}
-      </div>
-
-      <div className="UpdateTime"> Last Updated: <b>{new Date(uni.updatedAt).toDateString()} </b></div>
     </div>
   );
 }

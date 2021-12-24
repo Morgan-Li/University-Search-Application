@@ -67,9 +67,10 @@ export default function Admin() {
             </button>*/
 
   return (
-  <div>
+  <div className = "adminDiv">
       <div className="adminPanel">
-          <h1 className= "createTitle"><u>Create University </u></h1>
+        <div className="createUniDiv">
+          <h1 className= "createTitle">Create University </h1>
           <form className="createUniForm" onSubmit={handleCreate}>
             <div>
             <label> Rank: </label>
@@ -182,10 +183,12 @@ export default function Admin() {
             </button>
             </div>
           </form>
+        </div>
 
-          <h1 className= "createTitle"><u> Create Institution Account </u></h1>
+        <div className="createUniAccDiv"> 
+          <h1 className= "createTitle"> Create Institution Account </h1>
           <form className="createAccForm" onSubmit={handleCreateAcc}>
-            <label> Institution/ Username: </label>
+            <label> Institution name: </label>
             <input
             type="text"
             className="createInput"
@@ -212,6 +215,7 @@ export default function Admin() {
             </button>
             </div>
           </form>
+        </div>
       </div>
   </div>
   );

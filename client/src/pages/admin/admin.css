@@ -1,13 +1,15 @@
 .createTitle {
     color: #444;
     text-align: center;
-    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: solid red 1px;
 }
 
 .uniCreateButton {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 25px;
+
 }
 
 .createUniForm {
@@ -15,6 +17,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 25vw;
+    padding-top: 20px;
 }
 
 .createAccForm {
@@ -23,10 +26,58 @@
     margin-left: auto;
     margin-right: auto;
     width: 21vw;
+    padding-top: 20px;
+
 }
 
 .accCreateButton {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 25px;
+}
+
+.createButton {
+    cursor: pointer;
+    background-color: rgb(165, 29, 29);
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.createUniDiv {
+    background-color: white;
+    width: 500px;
+    height: 400px;
+    border-radius: 10px;
+    text-align: left;
+    -webkit-box-shadow: 2px 2px 6px 2px #5e5353; 
+    box-shadow: 2px 2px 6px 2px #686161;
+    padding: 15px;
+}
+
+.createUniAccDiv {
+    background-color: white;
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 6px 2px #5e5353; 
+    box-shadow: 2px 2px 6px 2px #686161;
+    padding: 15px;
+}
+
+.adminPanel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.25),
+        rgba(255, 255, 255, 0.25)
+      ),
+      url("https://images.pexels.com/photos/2973323/pexels-photo-2973323.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-size:cover;
+    text-align: center;
+    height: 94vh;
 }

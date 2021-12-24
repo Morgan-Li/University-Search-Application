@@ -19,7 +19,7 @@ function App() {
   <>
   <BrowserRouter>
     <Topbar/>
-    <Header/>
+
     <Routes>
       <Route exact path="/" element={<Homepage/>} />
       <Route path="/about" element={<About/>}/>

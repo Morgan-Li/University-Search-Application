@@ -1,15 +1,25 @@
-.home {
-    display: flex;
+.Home {
+    background: linear-gradient(
+      rgba(255, 255, 255, 0.233),
+      rgba(255, 255, 255, 0.774)
+    ),
+    url("https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: cover;
+  height: 150vh;
+  padding: 1px;
   }
 
   .listDiv {
     margin-top: 25px;
+
   }
 
+
   .queryBox {
-    margin-top: 150px;
+    padding: 5px;
     justify-content: center;
     display:flex;
     width: 30vw;
     margin-left: 35vw;
+
   }

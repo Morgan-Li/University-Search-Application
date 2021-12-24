@@ -74,8 +74,8 @@ router.delete("/alreadySaved", async (req, res) => {
   }
 });
 
-//End point to delete all instances of a university from all watchlist by UniID
-//Used for cleanup when deleting a uni
+//End point to update all instances of a university from all watchlist by UniID
+//Used in parallel with update university page
 router.put("/:id", async (req, res) => {
   console.log(req.params.id);
   try {

@@ -10,7 +10,6 @@ export default function Watchlist() {
 const { user } = useContext(Context);
   const [data, setData] = useState([]);
   const [q, setQ] = useState('');
-  //{user.username}
 
 
   useEffect(() => {
@@ -28,19 +27,21 @@ const { user } = useContext(Context);
 
   return (
     <div className="watchlist">
+      <div className="watchlistDiv"> 
         <h1 className="watchlistTitle">
-            <u>My Watchlist</u>
+          My Watchlist
         </h1>
         <input
             type="text"
-            placeholder="Search Universities"
-            className = "queryBox"
+            placeholder="Search Watchlist"
+            className = "watchlistQueryBox"
             value={q}
             onChange={(e) => setQ(e.target.value)}
         />
         <div className = "listDiv"> 
             <UniWatchList data={search(data)} />
         </div>
+      </div>
     </div>
   );
 }

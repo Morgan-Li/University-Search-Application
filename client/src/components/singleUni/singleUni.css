@@ -1,16 +1,39 @@
 .uniPage {
-    height: calc(60vh - 50px);
-    margin-top: 125px;
+    height: calc(100vh - 50px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: "Lora", serif;
     color: #444;
+    background: linear-gradient(
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.4)
+    ),
+    url("https://images.pexels.com/photos/159490/yale-university-landscape-universities-schools-159490.jpeg?cs=srgb&dl=pexels-pixabay-159490.jpg&fm=jpg");
+  background-size: cover;
+  }
+
+  .uniPageWrapper {
+    background-color: white;
+    display: inline-block;
+    padding: 50px;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 6px 2px #5e5353; 
+    box-shadow: 2px 2px 6px 2px #686161;
+    max-height: 80vh;
+    overflow: scroll;
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+
+  .uniNameTitle {
+    text-decoration: underline;
+    text-decoration-color: coral;
   }
 
   .commentsListDiv {
-    margin-top: 30px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
 
@@ -23,7 +46,7 @@
     border: #444;
     border: solid;
     border-radius: 3px;
-    margin-top: 10px;
+    margin-top: 3px;
   }
 
   .dateDiv {
@@ -47,20 +70,14 @@
     cursor: pointer;
   }
 
-  .saveDiv {
-    position: absolute;
-    left: 70vw;
+  .buttonDiv {
+    text-align: right;
   }
 
   .alreadySavedIcon {
     font-size: 40px;
-    color:rgb(21, 197, 109);
+    color:rgb(33, 153, 49);
     cursor: pointer;
-  }
-
-  .deleteDiv {
-    position: absolute;
-    left: 73vw;
   }
 
   .deleteIcon {
@@ -70,11 +87,7 @@
   }
 
   .UpdateTime {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
     color: #444;
-    font-size: 20px;
   }
 
   .saveChangesIcon {
@@ -90,6 +103,20 @@
   }
 
   .updateDiv {
-    position: absolute;
-    left: 67vw;
+    position:absolute;
+    right: 54px;
+    bottom: 8px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
   }
+
+  .deleteDiv {
+    position:absolute;
+    right: 8px;
+    bottom: 8px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+

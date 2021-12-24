@@ -8,7 +8,7 @@ const Uni = require("../models/uniInfo");
 //Endpoint for search query using params
 router.get("/", async (req, res) => {
     try {
-      let query2 = "Dog";
+      let query2 = "fsfs";
       let query3 = "Dog";
 
       if(req.query.PriLang == "All") {
@@ -52,8 +52,8 @@ router.get("/", async (req, res) => {
       }
       const queryUnis = await Uni.find(
         {PriLang: queryPriLang, 
-        $or: [{ Location: {$regex:queryLocation}}, {Location: query2}],  
-        //Location: {$regex:queryLocation} || {$type: "string"},
+        //$or: [ {Location: {$regex:queryLocation}}, {Location: query2}],  
+        Location: {$regex:queryLocation},
         Dom_Frgn_Ratio:{$gte : queryDom_Frgn_Ratio},
         $or: [{ Prog_Offered: queryProgram}, {Prog_Offered: query3}], 
         //Prog_Offered: queryProgram,

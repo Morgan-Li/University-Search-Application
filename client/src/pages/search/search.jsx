@@ -9,7 +9,7 @@ export default function Search() {
     const [data, setData] = useState([]);
     const [q, setQ] = useState('');
     const [PriLang, setPriLang] = useState("All");
-    const [Location, setLocation] = useState("All");
+    const [Location, setLocation] = useState("Canada");
     const [Dom_Frgn_Ratio, setDom_Frgn_Ratio] = useState("All");
     const [Program, setProgram] = useState("All");
     const [FTutition, setFTutition] = useState("100000");
@@ -48,90 +48,96 @@ export default function Search() {
   
     return (
     <div className="SearchPage">
-        <form className="searchForm" onSubmit={handleSubmit}>
-            <label className="PriLangLabel">Primary Language: </label>
-            <select className="PriLang" name="PriLang" onChange={e=> setPriLang(e.target.value)}>
-                <option value="All">All</option>
-                <option value="English">English</option>
-                <option value="French">French</option>
-                <option value="Mandarin">Mandarin</option>
-                <option value="Spanish">Spanish</option>
-                <option value="Hindi">Hindi</option>
-                <option value="Bengali">Bengali</option>
-                <option value="German">German</option>
-            </select>
-            <label className="LocationLabel"> Country: </label>
-            <select className="Location" name="Location" onChange={e=> setLocation(e.target.value)}>
-                <option value="All">All</option>
-                <option value="Canada">Canada</option>
-                <option value="United States">United States</option>
-                <option value="United Kingdom">United Kingdom</option>
-                <option value="China">China</option>
-                <option value="India">India</option>
-                <option value="Japan">Japan</option>
-                <option value="France">France</option>
-                <option value="Germany">Germany</option>
-            </select>
-            <label className="Dom_Frgn_RatioLabel"> Domestic to Foreign Students (GTE): </label>
-            <select className="Dom_Frgn_Ratio" name="Dom_Frgn_Ratio" onChange={e=> setDom_Frgn_Ratio(e.target.value)}>
-                <option value="All">All</option>
-                <option value="90">90:10</option>
-                <option value="80">80:20</option>
-                <option value="70">70:30</option>
-                <option value="60">60:40</option>
-                <option value="50">50:50</option>
-                <option value="40">40:60</option>
-                <option value="30">30:70</option>
-                <option value="20">20:80</option>
-            </select>
-            <label className="ProgramLabel"> Program: </label>
-            <select className="Program" name="Program" onChange={e=> setProgram(e.target.value)}>
-                <option value="All">All</option>
-                <option value="Math">Math</option>
-                <option value="Engineering">Engineering</option>
-                <option value="English">English</option>
-                <option value="Computer Science">Computer Science</option>
-                <option value="Psychology">Psychology</option>
-                <option value="Arts">Arts</option>
-                <option value="Biology">Biology</option>
-                <option value="Education">Education</option>
-            </select>
-            <label className="FTutitionLabel"> Foreign Tutition (Max): </label>
-            <select className="FTutition" name="FTutition" onChange={e=> setFTutition(e.target.value)}>
-                <option value="None">No limit</option>
-                <option value="5000">5000</option>
-                <option value="10000">10000</option>
-                <option value="15000">15000</option>
-                <option value="20000">20000</option>
-                <option value="25000">25000</option>
-                <option value="50000">50000</option>
-                <option value="100000">100000</option>
-            </select>
-            <label className="DTutitionLabel"> Domestic Tutition (Max): </label>
-            <select className="DTutition" name="DTutition" onChange={e=> setDTutition(e.target.value)}>
-                <option value="None">No limit</option>
-                <option value="3000">3000</option>
-                <option value="5000">5000</option>
-                <option value="8000">8000</option>
-                <option value="10000">10000</option>
-                <option value="15000">15000</option>
-                <option value="25000">25000</option>
-                <option value="50000">50000</option>
-            </select>
+        <div className="searchDiv">
+          <form className="searchForm" onSubmit={handleSubmit}>
+          <h1 className="searchTitle">
+            Search Universities
+          </h1>
+            <div className="searchInputs">
+              <label className="PriLangLabel"> Primary Language: </label>
+              <select className="PriLang" name="PriLang" onChange={e=> setPriLang(e.target.value)}>
+                  <option value="All">All</option>
+                  <option value="English">English</option>
+                  <option value="French">French</option>
+                  <option value="Mandarin">Mandarin</option>
+                  <option value="Spanish">Spanish</option>
+                  <option value="Hindi">Hindi</option>
+                  <option value="Bengali">Bengali</option>
+                  <option value="German">German</option>
+              </select>
+              <label className="LocationLabel"> Country: </label>
+              <select className="Location" name="Location" onChange={e=> setLocation(e.target.value)}>
+                  <option value="Canada">Canada</option>
+                  <option value="United States">United States</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="China">China</option>
+                  <option value="India">India</option>
+                  <option value="Japan">Japan</option>
+                  <option value="France">France</option>
+                  <option value="Germany">Germany</option>
+              </select>
+              <label className="Dom_Frgn_RatioLabel"> Domestic to Foreign Students (GTE): </label>
+              <select className="Dom_Frgn_Ratio" name="Dom_Frgn_Ratio" onChange={e=> setDom_Frgn_Ratio(e.target.value)}>
+                  <option value="All">All</option>
+                  <option value="90">90:10</option>
+                  <option value="80">80:20</option>
+                  <option value="70">70:30</option>
+                  <option value="60">60:40</option>
+                  <option value="50">50:50</option>
+                  <option value="40">40:60</option>
+                  <option value="30">30:70</option>
+                  <option value="20">20:80</option>
+              </select>
+              <label className="ProgramLabel"> Program: </label>
+              <select className="Program" name="Program" onChange={e=> setProgram(e.target.value)}>
+                  <option value="All">All</option>
+                  <option value="Math">Math</option>
+                  <option value="Engineering">Engineering</option>
+                  <option value="English">English</option>
+                  <option value="Computer Science">Computer Science</option>
+                  <option value="Psychology">Psychology</option>
+                  <option value="Arts">Arts</option>
+                  <option value="Biology">Biology</option>
+                  <option value="Education">Education</option>
+              </select>
+              <label className="FTutitionLabel"> Foreign Tutition (Max): </label>
+              <select className="FTutition" name="FTutition" onChange={e=> setFTutition(e.target.value)}>
+                  <option value="None">No limit</option>
+                  <option value="5000">5000</option>
+                  <option value="10000">10000</option>
+                  <option value="15000">15000</option>
+                  <option value="20000">20000</option>
+                  <option value="25000">25000</option>
+                  <option value="50000">50000</option>
+                  <option value="100000">100000</option>
+              </select>
+              <label className="DTutitionLabel"> Domestic Tutition (Max): </label>
+              <select className="DTutition" name="DTutition" onChange={e=> setDTutition(e.target.value)}>
+                  <option value="None">No limit</option>
+                  <option value="3000">3000</option>
+                  <option value="5000">5000</option>
+                  <option value="8000">8000</option>
+                  <option value="10000">10000</option>
+                  <option value="15000">15000</option>
+                  <option value="25000">25000</option>
+                  <option value="50000">50000</option>
+              </select>
+            </div>
             <button className="searchButton" type="submit">
-                Search
-            </button>
-        </form>
+                  Search
+              </button>
+          </form>
 
-        <input
-          type="text"
-          placeholder="Filter Universities"
-          className = "queryBox"
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-        />
-      <div className = "listDiv"> 
-        <UniList data={search(data)} />
+          <input
+            type="text"
+            placeholder="Filter Universities"
+            className = "searchQueryBox"
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+          />
+        <div className = "listDiv"> 
+          <UniList data={search(data)} />
+        </div>
       </div>
     </div>
     );

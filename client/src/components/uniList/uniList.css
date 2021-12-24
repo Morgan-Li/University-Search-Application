@@ -1,5 +1,4 @@
 .uniTable {
-  display: flex;
   justify-content: center;
   margin-bottom: 10vh;
   }
@@ -9,15 +8,29 @@
   table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
+    width:max-content;
   }
   
+th {
+  border-bottom: solid black 3px;
+}
+
   td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
   }
   
+
+  tr {
+    box-sizing: content-box;
+    width: 100%;
+  }
+
   tr:nth-child(even) {
     background-color: #dddddd;
+  }
+  tr:nth-child(odd) {
+    background-color: #ffffff;
   }
 
