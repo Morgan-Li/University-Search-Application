@@ -1,36 +1,53 @@
 .uniTable {
+  display: flex;
   justify-content: center;
   margin-bottom: 10vh;
+  position: relative;
+  max-height: 60vh;
+  overflow-x:  auto;
+
   }
 
-
+  .uniTable::-webkit-scrollbar {
+    display: none;
+  } 
+  
+  .uniTable {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+ 
 
   table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width:max-content;
+    width: 100%;
+    height: 100%;
   }
-  
-th {
-  border-bottom: solid black 3px;
-}
 
   td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
   }
-  
 
-  tr {
-    box-sizing: content-box;
-    width: 100%;
-  }
+
 
   tr:nth-child(even) {
     background-color: #dddddd;
+    border: 1px solid #ffffff;
   }
   tr:nth-child(odd) {
     background-color: #ffffff;
+
   }
 
+  tr:first-child th {
+     position: sticky;
+     top: -1px;
+     background-color: white;
+     z-index: 40;
+     border: 2px solid #dddddd;
+     text-align: left;
+     padding: 8px;
+   }

@@ -37,9 +37,7 @@ export default function Topbar() {
               <i class="topIconSaved fas fa-list"></i>
             </Link>
             <li className= "topListItem">
-              <Link className="link" to="/settings">
-                <i className="topIcon fas fa-user-circle"> {user.username}</i>
-              </Link>
+              <i className="topIcon fas fa-user-circle"> {user.username}</i>
             </li>
             <li className="topListItem" onClick={handleLogout}>
               {user && "LOGOUT"}
