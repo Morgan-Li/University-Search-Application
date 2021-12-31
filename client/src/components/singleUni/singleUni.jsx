@@ -261,7 +261,8 @@ export default function SingleUni() {
                     <div className="priLangDiv"> Primary Language: {PriLang} </div>
                     <div className="FTutition_RangeDiv"> Foreign Tutition Range (Avg): {FTutition_Range} </div>
                     <div className="DTutition_RangeDiv"> Domestic Tutition Range (Avg): {DTutition_Range}</div>
-                    <div className="verifiedDiv"> Verification Status: {Type} </div>
+                    <div className="verifiedDiv"> Verification Status: {Type} {Type=="Verified"? (<i className="verifiedIcon fas fa-check-circle"></i>):
+                    (<i className="unverifiedIcon fas fa-times-circle"></i>)}</div>
                     <div className="programsListDiv"> Programs Offered: 
                       {Programs.map((c) => (
                         <li className="programsListItem">{c}</li>

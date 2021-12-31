@@ -120,3 +120,10 @@
     border-radius: 5px;
   }
 
+.verifiedIcon {
+  color: green;
+}
+
+.unverifiedIcon {
+  color: rgb(201, 23, 23);
+}
