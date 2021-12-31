@@ -5,7 +5,7 @@ const savedUni = require("../models/savedUni");
 
 //http://localhost:5000/api/watchlist?username=Cat
 
-/*
+/* expected json res
 {
     "username": "Cat",
     "Rank": 1,
@@ -95,8 +95,16 @@ router.put("/:id", async (req, res) => {
 //Used for cleanup when deleting a uni
 router.delete("/:id", async (req, res) => {
   try {
-    await savedUni.deleteMany({UniID: req.params.id});
-    res.status(200).json("Deleted saved unis");
+    if(req.body.isAdmin) {
+      try {
+        await savedUni.deleteMany({UniID: req.params.id});
+        res.status(200).json("Deleted saved unis");
+      } catch (err) {
+        res.status(500).json(err);
+      }
+    } else {
+      res.status(401).json("Only admins can delete all saved instances of a uni!");
+    }
   } catch (err) {
     res.status(500).json(err);
   }

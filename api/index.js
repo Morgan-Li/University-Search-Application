@@ -7,6 +7,7 @@ const uniRoute = require("./routes/uniPages");
 const searchRoute = require("./routes/search");
 const watchlistRoute = require("./routes/watchlist");
 
+//git ignore env file if not deploying to protect mongodb connection url/password
 dotenv.config();
 app.use(express.json());
 

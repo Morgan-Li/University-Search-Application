@@ -1,4 +1,4 @@
-To run this application:
+# To run this application locally:
 
 cd api/
 
@@ -7,7 +7,7 @@ npm install
 npm start
 
 
--Split Terminal
+**Split Terminal**
 
 
 cd client/

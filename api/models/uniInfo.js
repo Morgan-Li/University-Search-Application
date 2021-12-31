@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const uniInfo = new mongoose.Schema(
-	{//CHANGED FTUT AND DTUT TO INT FROM STRING
+	{
         Rank: { type: Number },
 		Uname: { type: String, required: true, unique: true },
 		Prog_Offered: [{ type: String, required: true}],

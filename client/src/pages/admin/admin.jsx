@@ -1,11 +1,11 @@
-import { useLocation } from "react-router";
-import React,{ useRef, useContext, useEffect, useState } from "react";
+import React,{ useContext, useState } from "react";
 import { Context } from "../../context/Context";
 import axios from "axios";
 import "./admin.css";
 
 
 export default function Admin() {
+    const { user } = useContext(Context);
     const [rank, setRank] = useState(0);
     const [Uname, setUname] = useState("");
     const [Programs, setPrograms] = useState([]);
@@ -36,6 +36,7 @@ export default function Admin() {
             DTutition_Range: DTutition,
             Website: Website,
             Type: Verification,
+            isAdmin: user.isAdmin,
           });
           res.data && window.location.reload();
         } catch (err) {
@@ -50,6 +51,7 @@ export default function Admin() {
             email,
             password,
             isInstitution: true,
+            isAdmin: user.isAdmin,
           });
           res.data && window.location.reload();
         } catch (err) {
@@ -61,10 +63,6 @@ export default function Admin() {
     function appendToArray () {
         setPrograms(Programs=>[...Programs, prog.current.value]);
       };
-
-            /*<button className="addButton" type="button" onClick={console.log(Programs)}>
-                LOG
-            </button>*/
 
   return (
   <div className = "adminDiv">

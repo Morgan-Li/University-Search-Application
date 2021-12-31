@@ -8,8 +8,8 @@ const Uni = require("../models/uniInfo");
 //Endpoint for search query using params
 router.get("/", async (req, res) => {
     try {
-      let query2 = "fsfs";
-      let query3 = "Dog";
+      let query2 = "";
+      let query3 = "";
 
       if(req.query.PriLang == "All") {
         queryPriLang = {$type: "string"};
@@ -37,26 +37,25 @@ router.get("/", async (req, res) => {
         queryProgram = req.query.Program;
       }
 
-
       if(req.query.FTutition == "None") {
         parseInt(queryFTutition);
         queryFTutition = 900000;
       }else {
         queryFTutition = parseInt(req.query.FTutition);
       }
+
       if(req.query.DTutition == "None") {
         parseInt(queryDTutition);
         queryDTutition = 900000;
       }else {
         queryDTutition = parseInt(req.query.DTutition);
       }
+
       const queryUnis = await Uni.find(
         {PriLang: queryPriLang, 
-        //$or: [ {Location: {$regex:queryLocation}}, {Location: query2}],  
         Location: {$regex:queryLocation},
         Dom_Frgn_Ratio:{$gte : queryDom_Frgn_Ratio},
         $or: [{ Prog_Offered: queryProgram}, {Prog_Offered: query3}], 
-        //Prog_Offered: queryProgram,
         FTutition_Range:{$lte : queryFTutition},
         DTutition_Range: {$lte : queryDTutition},
         }, {Uname: 1, Rank: 1, Location: 1, Dom_Frgn_Ratio: 1,  Prog_Offered: 1, FTutition_Range:1, DTutition_Range: 1, Type: 1 }).sort({Rank: 1});

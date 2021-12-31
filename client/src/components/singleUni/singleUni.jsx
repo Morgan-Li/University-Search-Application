@@ -1,6 +1,6 @@
 
 import axios from "axios";
-import React,{ useRef, useContext, useEffect, useState } from "react";
+import React,{ useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { Context } from "../../context/Context";
 import "./singleUni.css";
@@ -30,10 +30,12 @@ export default function SingleUni() {
 
   let prog = React.createRef();
 
+  //function to add programs to uni programs_offered array during edit
   function appendToArray () {
     setPrograms(Programs=>[...Programs, prog.current.value]);
   };
 
+  //adding user comment to uni page
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -47,6 +49,7 @@ export default function SingleUni() {
     }
   };
 
+  //putting university into user watchlist
   const handleClick = async (e) => {
     e.preventDefault();
     try {
@@ -62,6 +65,7 @@ export default function SingleUni() {
     }
   };
 
+  //Cascade updating university + university watchlist instances
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
@@ -85,7 +89,6 @@ export default function SingleUni() {
 
   const updateSavedUnis = async () => {
     try {
-      console.log("MEOW");
       const res2 = await axios.put("/watchlist/" + path, {
         Rank: rank,
         Location: uniLocation,
@@ -95,6 +98,7 @@ export default function SingleUni() {
     }
   };
 
+  //remove uni from a user watchlist
   const handleDelete = async (e) => {
     e.preventDefault();
     try {
@@ -107,12 +111,18 @@ export default function SingleUni() {
     }
   };
 
-  //Cascade deletes unipage, instances saved in watchlist, then comments
+  /*Cascade deletes unipage, instances saved in watchlist, then comments
+    In the future, comments + watchlist instances should be saved with the 
+    University info collection to avoid doing this and for better non-relational
+    database design
+  */
   const handleDeletePage = async (e) => {
 
     e.preventDefault();
     try {
-      const res4 = await axios.delete("/uniPages/" + path);
+      const res4 = await axios.delete("/uniPages/" + path, {
+        data: {isAdmin: user.isAdmin},
+      });
       await deleteSavedUnis();
       res4.data && console.log("Deleted uni page!");
     } catch (err) {
@@ -122,17 +132,20 @@ export default function SingleUni() {
 
   const deleteSavedUnis = async () => {
     try {
-      const res5 = await axios.delete("/watchlist/" + path);
+      const res5 = await axios.delete("/watchlist/" + path, {
+        data: {isAdmin: user.isAdmin},
+      });
       await deleteComments();
       res5.data && console.log("Deleted saved pages!");
     } catch (err) {
     }
   };
 
-
   const deleteComments = async () => {
     try {
-      const res6 = await axios.delete("/uniPages/" + path + "/comment");
+      const res6 = await axios.delete("/uniPages/" + path + "/comment", {
+        data: {isAdmin: user.isAdmin},
+      });
       res6.data && window.location.replace("/");
     } catch (err) {
     }
@@ -141,7 +154,7 @@ export default function SingleUni() {
   useEffect(() => {
     const getUni = async () => {
       const res = await axios.get("/uniPages/" + path);
-      {user && (setUsername(user.username))};
+      user && setUsername(user.username);
       setUni(res.data);
       setUname(res.data.Uname);
       setRank(res.data.Rank);
@@ -261,7 +274,7 @@ export default function SingleUni() {
                     <div className="priLangDiv"> Primary Language: {PriLang} </div>
                     <div className="FTutition_RangeDiv"> Foreign Tutition Range (Avg): {FTutition_Range} </div>
                     <div className="DTutition_RangeDiv"> Domestic Tutition Range (Avg): {DTutition_Range}</div>
-                    <div className="verifiedDiv"> Verification Status: {Type} {Type=="Verified"? (<i className="verifiedIcon fas fa-check-circle"></i>):
+                    <div className="verifiedDiv"> Verification Status: {Type} {Type==="Verified"? (<i className="verifiedIcon fas fa-check-circle"></i>):
                     (<i className="unverifiedIcon fas fa-times-circle"></i>)}</div>
                     <div className="programsListDiv"> Programs Offered: 
                       {Programs.map((c) => (
@@ -270,7 +283,7 @@ export default function SingleUni() {
                     </div>
                     <div className="UpdateTime"> Last Updated: <b>{new Date(uni.updatedAt).toDateString()} </b>
                       {user && (<div className="buttonDiv"> 
-                      {AlreadySaved.length ==0 ?(<i className="saveIcon fas fa-save" onClick={handleClick}></i> ):
+                      {AlreadySaved.length ===0 ?(<i className="saveIcon fas fa-save" onClick={handleClick}></i> ):
                       (<i className="alreadySavedIcon fas fa-save" onClick={handleDelete}></i>)}
                       </div>)}
                     </div>
@@ -305,7 +318,7 @@ export default function SingleUni() {
                 </div>
               </div>
           </div>
-          {user && (user.isAdmin || user.isInstitution) && (user.isAdmin || user.username == Uname) && (<div className="updateDiv"> 
+          {user && (user.isAdmin || user.isInstitution) && (user.isAdmin || user.username === Uname) && (<div className="updateDiv"> 
           {Updating ?(<i className="saveChangesIcon fas fa-check-square" onClick={handleUpdate}></i> ):
           (<i class="updateIcon fas fa-edit" onClick={() => setUpdating(true)}></i>)}
           </div>)}
