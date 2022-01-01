@@ -21,7 +21,7 @@
     border-radius: 10px;
     text-align: center;
     width: 275px;
-    height: 350px;
+    height: 450px;
     -webkit-box-shadow: 2px 2px 6px 2px #5e5353; 
     box-shadow: 2px 2px 6px 2px #686161;
   }
@@ -68,3 +68,28 @@
     align-self: center;
   }
   
+  .demoAdminButton {
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: rgb(187, 69, 48);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+    align-self: center;
+  }
+  
+  .demoInstituteButton {
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: rgb(13, 134, 155);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+    align-self: center;
+  }

@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useContext, useRef } from "react";
-import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import "./login.css";
 
@@ -11,12 +10,39 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('cat');
     dispatch({ type: "LOGIN_START" });
     try {
       const res = await axios.post("/auth/login", {
         username: userRef.current.value,
         password: passwordRef.current.value,
+      });
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+    } catch (err) {
+      dispatch({ type: "LOGIN_FAILURE" });
+    }
+  };
+
+  const handleAdminDemo = async (e) => {
+    e.preventDefault();
+    dispatch({ type: "LOGIN_START" });
+    try {
+      const res = await axios.post("/auth/login", {
+        username: "admin",
+        password: "admin",
+      });
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+    } catch (err) {
+      dispatch({ type: "LOGIN_FAILURE" });
+    }
+  };
+
+  const handleInstituteDemo = async (e) => {
+    e.preventDefault();
+    dispatch({ type: "LOGIN_START" });
+    try {
+      const res = await axios.post("/auth/login", {
+        username: "University of Oxford",
+        password: "cat",
       });
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
     } catch (err) {
@@ -45,6 +71,12 @@ export default function Login() {
           />
           <button className="loginButton" type="submit" disabled={isFetching}>
             Login
+          </button>
+          <button className="demoAdminButton" onClick={handleAdminDemo} disabled={isFetching}>
+            Demo Admin
+          </button>
+          <button className="demoInstituteButton" onClick={handleInstituteDemo} disabled={isFetching}>
+            Demo Institute
           </button>
         </form>
       </div>
