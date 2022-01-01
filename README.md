@@ -7,10 +7,12 @@ a direct interface for institutions to update and edit their own university prof
 ## To run locally
 1. cd client/
 2. npm install
-2. npm start
+3. npm start
+
 **split terminal**
+
 1. cd api/
 2. npm install
-2. npm start
+3. npm start
 
 ## Live Demo
